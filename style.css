@@ -112,7 +112,24 @@ h4 {
     border-radius: 6px;
     cursor: pointer;
     background: linear-gradient(to right, #fb5283, #ff3257);
-    z-index: 2;
+    transition: all 0.5s ease-in-out;
+}
+
+.buy img {
+    width: 30px;
+    display: none;
+}
+
+.buy:hover {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+}
+
+.buy:hover img {
+    display: block;
 }
 
 .column2 {
@@ -124,6 +141,7 @@ h4 {
 .controller {
     width: 90%;
     z-index: 2;
+    animation:movecontroller 2s infinite alternate ease-in-out;
 }
 
 .colorbox {
@@ -146,8 +164,9 @@ h4 {
 }
 
 .addcart img {
-    height: 45px;
-    width: 45px;
+    height: 100%;
+    width: 100%;
+    max-width: 55px;
 }
 
 .socialinks {
@@ -159,6 +178,7 @@ h4 {
 .menuicon {
     width: 25px;
     margin-left: 15px;
+    display: none;
 }
 
 .socialinks img {
@@ -174,20 +194,47 @@ h4 {
 }
 
 @media (max-width:760px) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        overflow: auto;
+    }
+
+    .row {
+        flex-direction: column-reverse;
+    }
+
+    .column2 {
+        margin-bottom: 30px;
+    }
+
+    .colorbox {
+        transform: translateX(70px);
+    }
+
     #menulist {
         position: relative;
         top: 60px;
         left: 60px;
         overflow: hidden;
+        transition: all 0.8s ease-in-out;
     }
 
     .menuicon {
         display: block;
+        cursor: pointer;
     }
 
 
     .navli {
         display: block;
         margin-top: 5px;
+    }
+}
+
+@keyframes movecontroller {
+    from {
+        transform: translate(-5%, -5%) rotate(-5deg); 
     }
 }
